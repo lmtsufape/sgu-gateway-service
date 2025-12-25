@@ -59,6 +59,13 @@ spring:
                 - Path=/editais/**
               filters:
                 - StripPrefix=1
+            - id: sgu-extra-sisu-service
+              uri: lb://sgu-extra-sisu-service
+              predicates:
+                - Path=/extra-sisu/**
+              filters:
+                - StripPrefix=1
+                - AddRequestHeader=X-Forwarded-Prefix, /extra-sisu
 
 ---
 spring:
